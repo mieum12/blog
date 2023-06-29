@@ -1,9 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
-import PostsRootPage from "./pages/PostsRootPage";
+import PostsRootLayoutPage from "./pages/PostsRootLayoutPage";
 import PostsPage from "./pages/PostsPage";
 import PostDetailPage from "./pages/PostDetailPage";
 import EditPostPage from "./pages/EditPostPage";
@@ -23,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "posts",
-        element: <PostsRootPage />,
+        element: <PostsRootLayoutPage />,
         children: [
           {
             index: true,
