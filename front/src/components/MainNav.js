@@ -41,11 +41,13 @@ const Nav = styled.div`
   .list a {
     text-decoration: none;
     color: #f1f2ed;
+    display: flex;
   }
-  .list a:hover,
+  .list a:hover {
+    transform: scale(1.15);
+  }
   .list a.active {
     text-decoration: underline;
     text-underline-position: under;
-    transition: all 0.5s;
   }
 `;

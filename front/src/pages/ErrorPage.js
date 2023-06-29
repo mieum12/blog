@@ -1,7 +1,15 @@
+import { styled } from "styled-components";
+
 export default function ErrorPage() {
   return (
-    <div>
-      <h1>에러가 발생했습니다!!</h1>
-    </div>
+    <Error>
+      <h1>ERROR</h1>
+    </Error>
   );
 }
+
+const Error = styled.div`
+  text-align: center;
+  font-family: CWDangamAsac-Bold;
+  font-size: 10rem;
+`;

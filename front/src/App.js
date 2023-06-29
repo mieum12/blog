@@ -3,7 +3,7 @@ import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import PostsRootLayoutPage from "./pages/PostsRootLayoutPage";
-import PostsPage from "./pages/PostsPage";
+import PostsPage, { loader as postsLoader } from "./pages/PostsPage";
 import PostDetailPage from "./pages/PostDetailPage";
 import EditPostPage from "./pages/EditPostPage";
 import NewPostPage from "./pages/NewPostPage";
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <PostsPage />,
+            loader: postsLoader,
           },
           {
             path: ":postId",
