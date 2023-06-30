@@ -13,6 +13,7 @@ import NewPostPage from "./pages/NewPostPage";
 import AuthPage, { action as authAction } from "./pages/AuthPage";
 import { checkAuthLoader, tokenLoader } from "./util/auth";
 import { action as logoutAction } from "./pages/Logout";
+import { action as manipulatePostAction } from "./components/PostForm";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
                 path: "edit",
                 element: <EditPostPage />,
                 loader: checkAuthLoader,
+                action: manipulatePostAction,
               },
             ],
           },
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
             path: "new",
             element: <NewPostPage />,
             loader: checkAuthLoader,
+            action: manipulatePostAction,
           },
         ],
       },
