@@ -14,5 +14,5 @@ export default function HomePage() {
 
 const Intro = styled.div`
   font-family: "CWDangamAsac-Bold";
-  font-size: 17rem;
+  font-size: 10rem;
 `;

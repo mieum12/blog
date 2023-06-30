@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Form, NavLink, useRouteLoaderData } from "react-router-dom";
 import { styled } from "styled-components";
 
 export default function MainNav() {
+  const token = useRouteLoaderData("root");
+
   return (
     <Nav>
       <div className="list">
@@ -12,15 +14,19 @@ export default function MainNav() {
           <NavLink to="/posts">Blog</NavLink>
         </ul>
 
-        {/* 토큰이 없을 떄 */}
-        <ul>
-          <NavLink to="/auth?mode=login">Login/Signup</NavLink>
-        </ul>
+        {!token && (
+          <ul>
+            <NavLink to="/auth?mode=login">Login/Signup</NavLink>
+          </ul>
+        )}
 
-        {/* 토큰이 없을 때 */}
-        <ul>
-          <NavLink to="/logout">Logout</NavLink>
-        </ul>
+        {token && (
+          <ul>
+            <Form action="/logout" method="post">
+              <button>Logout</button>
+            </Form>
+          </ul>
+        )}
       </div>
     </Nav>
   );
@@ -28,9 +34,9 @@ export default function MainNav() {
 
 const Nav = styled.div`
   font-family: "CWDangamAsac-Bold";
-  font-size: 3rem;
+  font-size: 2rem;
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
 
@@ -49,5 +55,16 @@ const Nav = styled.div`
   .list a.active {
     text-decoration: underline;
     text-underline-position: under;
+  }
+  button {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    color: #f1f2ed;
+    font-family: "CWDangamAsac-Bold";
+    font-size: 2rem;
+  }
+  button:hover {
+    transform: scale(1.15);
   }
 `;

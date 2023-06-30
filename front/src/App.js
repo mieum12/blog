@@ -7,7 +7,9 @@ import PostsPage, { loader as postsLoader } from "./pages/PostsPage";
 import PostDetailPage from "./pages/PostDetailPage";
 import EditPostPage from "./pages/EditPostPage";
 import NewPostPage from "./pages/NewPostPage";
-import AuthPage from "./pages/AuthPage";
+import AuthPage, { action as authAction } from "./pages/AuthPage";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
+import { action as logoutAction } from "./pages/Logout";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     id: "root",
     errorElement: <ErrorPage />,
+    loader: tokenLoader,
     children: [
       {
         index: true,
@@ -40,21 +43,25 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditPostPage />,
+                loader: checkAuthLoader,
               },
             ],
           },
           {
             path: "new",
             element: <NewPostPage />,
+            loader: checkAuthLoader,
           },
         ],
       },
       {
         path: "auth",
         element: <AuthPage />,
+        action: authAction,
       },
       {
         path: "logout",
+        action: logoutAction,
       },
     ],
   },

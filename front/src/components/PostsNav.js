@@ -7,14 +7,14 @@ export default function PostsNav() {
       <div className="list">
         <ul>
           <NavLink to="/posts">
-            <h1>모든 글 보기</h1>
+            <h1>All Posts</h1>
           </NavLink>
         </ul>
 
         {/* 토큰이 없을 때 사라지게 */}
         <ul>
           <NavLink to="/posts/new">
-            <h1>새 글 쓰기</h1>
+            <h1>New Post</h1>
           </NavLink>
         </ul>
       </div>
@@ -23,6 +23,8 @@ export default function PostsNav() {
 }
 
 const Nav = styled.div`
+  font-family: "CWDangamAsac-Bold";
+  font-size: 1rem;
   padding: 2rem;
   display: flex;
   justify-content: center;

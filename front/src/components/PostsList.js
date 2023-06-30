@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 export default function PostsList({ posts }) {
   return (
     <PostContainer>
+      <div>전체 게시물({posts.length})</div>
       <div className="posts">
         <ul className="list">
           {posts.map((post) => (
@@ -26,7 +27,6 @@ export default function PostsList({ posts }) {
 const PostContainer = styled.div`
   .posts {
     margin: 3rem auto;
-    // max-width: 200rem;
   }
 
   .list {
@@ -41,7 +41,7 @@ const PostContainer = styled.div`
     list-style-type: none;
   }
   .item a {
-    padding: 4rem 4rem;
+    padding: 0rem 4rem 2rem;
     text-decoration: none;
     color: inherit;
     display: flex;
@@ -56,7 +56,7 @@ const PostContainer = styled.div`
 
   .item img {
     border-radius: 4px;
-    height: 30rem;
+    height: 20rem;
     object-fit: cover;
   }
 
