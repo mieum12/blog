@@ -4,7 +4,10 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import PostsRootLayoutPage from "./pages/PostsRootLayoutPage";
 import PostsPage, { loader as postsLoader } from "./pages/PostsPage";
-import PostDetailPage from "./pages/PostDetailPage";
+import PostDetailPage, {
+  loader as postDetailLoader,
+  action as deletePostAction,
+} from "./pages/PostDetailPage";
 import EditPostPage from "./pages/EditPostPage";
 import NewPostPage from "./pages/NewPostPage";
 import AuthPage, { action as authAction } from "./pages/AuthPage";
@@ -35,10 +38,12 @@ const router = createBrowserRouter([
           {
             path: ":postId",
             id: "post-detail",
+            loader: postDetailLoader,
             children: [
               {
                 index: true,
                 element: <PostDetailPage />,
+                action: deletePostAction,
               },
               {
                 path: "edit",
